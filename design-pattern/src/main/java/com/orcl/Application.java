@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import com.orcl.design.adaptor.Print;
-import com.orcl.design.adaptor.PrintHuman;
+//import com.orcl.design.adaptor.Print;
+//import com.orcl.design.adaptor.PrintHuman;
 import com.orcl.design.singleton.TicketMaker;
 
 /**

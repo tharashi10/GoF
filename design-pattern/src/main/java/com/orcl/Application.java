@@ -7,17 +7,20 @@ import java.util.List;
 //import com.orcl.design.adaptor.Print;
 //import com.orcl.design.adaptor.PrintHuman;
 import com.orcl.design.singleton.TicketMaker;
+import com.orcl.design.adaptor.Prints;
+import com.orcl.design.adaptor.PrintBanner;
 
 /**
- *
+ * design Classで定義した各々のClassを実行するためのMain部分
  */
 public class Application 
 {
     public static void main( String[] args )
     {  
-        /**
-         * Adaptor Pattern CLient
-         */
+        /* Adaptor Pattern CLient */
+        Prints p = new PrintBanner("HogeHoge");
+        p.printWeak();
+        p.printStrong();
         //Print p = new PrintHuman("Hoge", 50);
         //p.printName();
         //p.printAge();

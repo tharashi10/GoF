@@ -10,6 +10,9 @@ import com.orcl.design.singleton.TicketMaker;
 import com.orcl.design.adaptor.Prints;
 import com.orcl.design.adaptor.PrintBanner;
 
+import com.orcl.design.template.AbstractDisplay;
+import com.orcl.design.template.CharDisplay;
+import com.orcl.design.template.StringDisplay;
 /**
  * design Classで定義した各々のClassを実行するためのMain部分
  */
@@ -40,5 +43,22 @@ public class Application
         while(it.hasNext()){
             System.out.println(it.next());
         }
+
+        /* Template */
+        AbstractDisplay cd = new CharDisplay('H');
+        AbstractDisplay sd = new StringDisplay("Hello world!");
+        cd.display();
+        sd.display();
+
+        /*
+         * <<HHHHH>>
+         * ++
+         * |Hello world!|
+         * |Hello world!|
+         * |Hello world!|
+         * |Hello world!|
+         * |Hello world!|
+         * ++
+        */
     }
 }

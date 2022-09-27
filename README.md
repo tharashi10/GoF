@@ -21,7 +21,7 @@
 |----|--------------|-|
 | 01 | Iterator     ||
 | 02 | Adaptor      ||
-| 03 | Template     ||
+| 03 | Template     |具体的な処理をサブクラスに任せる|
 | 04 | Factory      ||
 | 05 | Singleton    ||
 | 06 | Prototype    ||

@@ -17,10 +17,10 @@
 - リポジトリはGoF以外でもCodeを載せてOKとする。（PythonでもSQLでもOK）
 
 
-| ## |  Pattern   | Detail |
+| ## |  Pattern   | サマリ |
 |----|--------------|-|
-| 01 | Iterator     ||
-| 02 | Adaptor      ||
+| 01 | Iterator     |統一した方法で一つずつ処理する(実装と切り離して繰り返し処理できる)|
+| 02 | Adaptor      |既存クラスをWrapして再利用する|
 | 03 | Template     |具体的な処理をサブクラスに任せる|
 | 04 | Factory      ||
 | 05 | Singleton    ||

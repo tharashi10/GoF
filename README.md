@@ -15,3 +15,29 @@
 
 #### その他
 - リポジトリはGoF以外でもCodeを載せてOKとする。（PythonでもSQLでもOK）
+
+
+| ## |  Pattern   | Detail |
+|----|--------------|-|
+| 01 | Iterator     ||
+| 02 | Adaptor      ||
+| 03 | Template     ||
+| 04 | Factory      ||
+| 05 | Singleton    ||
+| 06 | Prototype    ||
+| 07 | Builder      ||
+| 08 | Abstract Factory  ||
+| 09 | Bridge       ||
+| 10 | Strategy     ||
+| 11 | Composite    ||
+| 12 | Decorator    ||
+| 13 | Visitor      ||
+| 14 | ChainOfResponsibility ||
+| 15 | Facade       ||
+| 16 | Mediator     ||
+| 17 | Observer     ||
+| 18 | Memento      ||
+| 19 | State        ||
+| 20 | Flyweight    ||
+| 21 | Proxy        ||
+| 22 | Command      ||

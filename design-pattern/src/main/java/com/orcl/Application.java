@@ -8,6 +8,8 @@ import java.util.List;
 //import com.orcl.design.adaptor.PrintHuman;
 import com.orcl.design.singleton.TicketMaker;
 import com.orcl.design.adaptor.Prints;
+import com.orcl.design.iterator.Book;
+import com.orcl.design.iterator.BookShelf;
 import com.orcl.design.adaptor.PrintBanner;
 
 import com.orcl.design.template.AbstractDisplay;
@@ -20,7 +22,19 @@ public class Application
 {
     public static void main( String[] args )
     {  
-        /* Adaptor Pattern CLient */
+        /* Iterator */
+        BookShelf bookShelf = new BookShelf(3);
+        bookShelf.appendBook(new Book("Around the World in 80 days."));
+        bookShelf.appendBook(new Book("Bible."));
+        bookShelf.appendBook(new Book("Cinderella."));
+
+        Iterator<Book> ite = bookShelf.iterator();
+        while(ite.hasNext()){
+            Book book = ite.next();
+            System.out.println(book.getName());
+        }
+
+        /* Adaptor Pattern Client */
         Prints p = new PrintBanner("HogeHoge");
         p.printWeak();
         p.printStrong();

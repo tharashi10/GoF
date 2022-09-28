@@ -1,6 +1,7 @@
 package com.orcl.design.template;
 
-public class CharDisplay extends AbstractDisplay{
+//public class CharDisplay extends AbstractDisplay{
+public class CharDisplay implements AbstractDisplay{
     private char ch;
     public CharDisplay(char ch){
         this.ch = ch;

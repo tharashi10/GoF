@@ -1,6 +1,6 @@
 package com.orcl.design.template;
 
-public class StringDisplay extends AbstractDisplay{
+public class StringDisplay implements AbstractDisplay{
     private String str;
     private int width;
 

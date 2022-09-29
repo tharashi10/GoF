@@ -1,4 +1,4 @@
-## Java
+## Java Tips
 #### Iterable<E> Interface
 - 何かたくさんが集まったもの=「集合体」を表す
 - E: 型パラメータ

@@ -22,7 +22,7 @@
 | 01 | Iterator     |統一した方法で一つずつ処理する(実装と切り離して繰り返し処理できる)|
 | 02 | Adaptor      |既存クラスをWrapして再利用する|
 | 03 | Template     |具体的な処理をサブクラスに任せる|
-| 04 | Factory      ||
+| 04 | Factory      |インスタンス作成をサブクラスに任せる|
 | 05 | Singleton    ||
 | 06 | Prototype    ||
 | 07 | Builder      ||
@@ -41,3 +41,4 @@
 | 20 | Flyweight    ||
 | 21 | Proxy        ||
 | 22 | Command      ||
+| 99 | Data Access Pattern ||

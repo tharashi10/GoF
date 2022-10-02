@@ -8,6 +8,10 @@ import java.util.List;
 //import com.orcl.design.adaptor.PrintHuman;
 import com.orcl.design.singleton.TicketMaker;
 import com.orcl.design.adaptor.Prints;
+import com.orcl.design.factory.framework.Factory;
+import com.orcl.design.factory.framework.Product;
+import com.orcl.design.factory.idcard.IDCard;
+import com.orcl.design.factory.idcard.IDCardFactory;
 import com.orcl.design.iterator.Book;
 import com.orcl.design.iterator.BookShelf;
 import com.orcl.design.adaptor.PrintBanner;
@@ -23,6 +27,7 @@ public class Application
     public static void main( String[] args )
     {  
         /* Iterator */
+        System.out.println("===== Iterator =====");
         BookShelf bookShelf = new BookShelf(3);
         bookShelf.appendBook(new Book("Around the World in 80 days."));
         bookShelf.appendBook(new Book("Bible."));
@@ -35,6 +40,7 @@ public class Application
         }
 
         /* Adaptor Pattern Client */
+        System.out.println("===== Adaptor =====");
         Prints p = new PrintBanner("HogeHoge");
         p.printWeak();
         p.printStrong();
@@ -43,6 +49,7 @@ public class Application
         //p.printAge();
 
         /* Singleton */
+        System.out.println("===== Singleton =====");
         TicketMaker instance1 = TicketMaker.getInstance();
         TicketMaker instance2 = TicketMaker.getInstance();
         System.out.println(instance1);
@@ -59,20 +66,18 @@ public class Application
         }
 
         /* Template */
+        System.out.println("===== Template =====");
         AbstractDisplay cd = new CharDisplay('H');
         AbstractDisplay sd = new StringDisplay("Hello world!");
         cd.display();
         sd.display();
 
-        /*
-         * <<HHHHH>>
-         * ++
-         * |Hello world!|
-         * |Hello world!|
-         * |Hello world!|
-         * |Hello world!|
-         * |Hello world!|
-         * ++
-        */
+        /* Factory */
+        System.out.println("===== Factory =====");
+        Factory idcard = new IDCardFactory();
+        Product card1 = idcard.create("HogeHoge");
+        Product card2 = idcard.create("BarBar");
+        card1.use();
+        card2.use();
     }
 }

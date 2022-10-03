@@ -8,9 +8,11 @@ import java.util.List;
 //import com.orcl.design.adaptor.PrintHuman;
 import com.orcl.design.singleton.TicketMaker;
 import com.orcl.design.adaptor.Prints;
+import com.orcl.design.dao.Instructor;
+import com.orcl.design.dao.InstructorDao;
+import com.orcl.design.dao.InstructorDaoImpl;
 import com.orcl.design.factory.framework.Factory;
 import com.orcl.design.factory.framework.Product;
-import com.orcl.design.factory.idcard.IDCard;
 import com.orcl.design.factory.idcard.IDCardFactory;
 import com.orcl.design.iterator.Book;
 import com.orcl.design.iterator.BookShelf;
@@ -79,5 +81,14 @@ public class Application
         Product card2 = idcard.create("BarBar");
         card1.use();
         card2.use();
+
+        /* DAO */
+        System.out.println("===== Dao =====");
+        InstructorDao instructorDao = new InstructorDaoImpl();
+        /* PrintAllInstructor */
+        for (Instructor instructor :instructorDao.getAllInstructors()){
+            System.out.println(
+                "Instructor: [ID=" + instructor.getId() + ", Name=" + instructor.getName() +"]");
+        }
     }
 }

@@ -41,4 +41,4 @@
 | 20 | Flyweight    ||
 | 21 | Proxy        ||
 | 22 | Command      ||
-| 99 | Data Access Pattern ||
+| 99 | Data Access Pattern | DBへのCRUD操作を「表」ごとに作成するパターン |

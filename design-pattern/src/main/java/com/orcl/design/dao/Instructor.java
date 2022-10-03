@@ -1,7 +1,9 @@
 package com.orcl.design.dao;
 
-
-// これはValue Object
+/* 
+ * これはValue Object
+ * Data Transfer Object(DTO)ともいう
+ */ 
 public class Instructor {
     private String name;
     private int id;
@@ -10,7 +12,6 @@ public class Instructor {
         this.name = name;
         this.id = id;
     }
-
     public void setId(int id) {
         this.id = id;
     }

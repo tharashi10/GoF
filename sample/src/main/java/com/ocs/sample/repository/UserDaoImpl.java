@@ -1,39 +1,53 @@
 package com.ocs.sample.repository;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import javax.persistence.EntityManager;
-import javax.persistence.Query;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import com.ocs.sample.dao.UserDao;
 import com.ocs.sample.entity.User;
 
-
-public class UserDaoImpl implements UserDao<User>{
-    private EntityManager entityManager;
-    public UserDaoImpl(){
-        super();
-    }
-    public UserDaoImpl(EntityManager entityManager) {
-		this.entityManager = entityManager;
+// DIコンテナの対象となる(DBにアクセスするクラスに付与するアノテーション)
+@Repository
+public class UserDaoImpl implements UserDao {
+    // JDBC Templateを利用
+    private final NamedParameterJdbcTemplate jdbcTemplate;
+    
+    // 依存性を注入する
+    @Autowired
+    public UserDaoImpl(NamedParameterJdbcTemplate jdbcTemplate) {
+		this.jdbcTemplate = jdbcTemplate;
 	}
     
     @Override
-    @SuppressWarnings("unchecked")
 	public List<User> getAll() {
-		Query query = entityManager.createQuery("from USER01");
-		List<User> list = query.getResultList();
-		entityManager.close();
+        StringBuilder sqlBuilder = new StringBuilder();
+        sqlBuilder.append("SELECT u.id, u.username, u.salary, TO_CHAR(u.birth, 'YYYY/MM/DD') FROM USER01 u");
+
+        String sql = sqlBuilder.toString();
+        // パラメータ設定用Map
+        Map<String, String> param = new HashMap<>();
+        
+        //User一覧をMapのListで取得
+        List<Map<String, Object>> resultList = jdbcTemplate.queryForList(sql, param);
+        
+        //Return用の空のListを用意
+        List<User> list = new ArrayList<User>();
+
+		for (Map<String, Object> result: resultList){
+            User user = new User();
+            user.setId((int)result.get("id"));
+            user.setName((String)result.get("name"));
+            user.setBirth((Date)result.get("birth"));
+            user.setSalary((int)result.get("salary"));
+            list.add(user);
+        }
 		return list;
 	}
-
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<User> getByUserId(String id) {
-        List<User> list = entityManager
-        .createQuery("from USER01 where id = :id")
-        .setParameter("id", id)
-		.getResultList();
-		return list;
-    }
 }

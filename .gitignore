@@ -2,3 +2,4 @@
 .DS_Store
 design-pattern/.vscode
 design-pattern/img/*
+lib/*

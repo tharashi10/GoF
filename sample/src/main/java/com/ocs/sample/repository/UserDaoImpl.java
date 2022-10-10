@@ -1,5 +1,6 @@
 package com.ocs.sample.repository;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
@@ -28,7 +29,7 @@ public class UserDaoImpl implements UserDao {
     @Override
 	public List<User> getAll() {
         StringBuilder sqlBuilder = new StringBuilder();
-        sqlBuilder.append("SELECT u.id, u.username, u.salary, TO_CHAR(u.birth, 'YYYY/MM/DD') FROM USER01 u");
+        sqlBuilder.append("SELECT u.id, u.username, u.salary, TO_CHAR(u.birth, 'YYYY/MM/DD') as birth FROM USER01 u");
 
         String sql = sqlBuilder.toString();
         // パラメータ設定用Map
@@ -42,10 +43,10 @@ public class UserDaoImpl implements UserDao {
 
 		for (Map<String, Object> result: resultList){
             User user = new User();
-            user.setId((int)result.get("id"));
-            user.setName((String)result.get("name"));
-            user.setBirth((Date)result.get("birth"));
-            user.setSalary((int)result.get("salary"));
+            user.setId(((BigDecimal) result.get("id")).intValue());
+            user.setName((String) result.get("username"));
+            user.setBirth((Date) result.get("birth"));
+            user.setSalary(((BigDecimal) result.get("salary")).intValue());
             list.add(user);
         }
 		return list;

@@ -1,2 +1,2 @@
-- 
 - [DAO Spring](https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#dao)
+- [ATP Gradle](https://blogs.oracle.com/developers/post/connecting-to-oracle-autonomous-database-via-jdbc)

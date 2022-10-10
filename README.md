@@ -2,6 +2,9 @@
 #### README.md作成日
 - 2022-09-01
 
+#### メンバ
+- 2名
+
 #### 位置付け
 - 本プロジェクトでは、Private Study Roomの続編としてJavaを学ぶものとする。
 
@@ -23,7 +26,7 @@
 | 02 | Adaptor      |既存クラスをWrapして再利用する|
 | 03 | Template     |具体的な処理をサブクラスに任せる|
 | 04 | Factory      |インスタンス作成をサブクラスに任せる|
-| 05 | Singleton    ||
+| 05 | Singleton    |インスタンスが1個だけ(Private Constructor)|
 | 06 | Prototype    ||
 | 07 | Builder      ||
 | 08 | Abstract Factory  ||

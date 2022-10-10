@@ -21,7 +21,7 @@ public class UserDaoImpl implements UserDao<User>{
     @Override
     @SuppressWarnings("unchecked")
 	public List<User> getAll() {
-		Query query = entityManager.createQuery("from USERS");
+		Query query = entityManager.createQuery("from USER01");
 		List<User> list = query.getResultList();
 		entityManager.close();
 		return list;
@@ -31,7 +31,7 @@ public class UserDaoImpl implements UserDao<User>{
     @SuppressWarnings("unchecked")
     public List<User> getByUserId(String id) {
         List<User> list = entityManager
-        .createQuery("from USERS where id = :id")
+        .createQuery("from USER01 where id = :id")
         .setParameter("id", id)
 		.getResultList();
 		return list;

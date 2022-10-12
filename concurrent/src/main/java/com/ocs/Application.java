@@ -1,7 +1,8 @@
 package com.ocs;
 
-import com.ocs.concurrent.PrintThread;
 //import com.ocs.concurrent.Printer;
+import com.ocs.concurrent.singleThreaded.Gate;
+import com.ocs.concurrent.singleThreaded.UserThread;
 
 /**
  * Main
@@ -17,10 +18,19 @@ public class Application
          * 並行(concurrent):どんな順序で処理してもOK複数の作業(逐次+並列)
          */
         // 最も基本的なThreadの書き方(Hoge/Goodの混在表示)
-        PrintThread th = new PrintThread("hoge");
-        th.start();
-        for(int i=0;i<100; i++){
-            System.out.print( "Good" );
-        }
+        //PrintThread th = new PrintThread("hoge");
+        //th.start();
+        //for(int i=0;i<100; i++){
+        //    System.out.print( "Good" );
+        //}
+
+        /*
+         * UserThread Class
+         */
+        System.out.println("Testing Gate, hit Ctrl+C to exit;");
+        Gate gate = new Gate();
+        new UserThread(gate, "Alice", "Alaska").start();
+        new UserThread(gate, "Bob", "Brazil").start();
+        new UserThread(gate, "Chris", "Canada").start();
     }
 }

@@ -27,7 +27,7 @@
 | 03 | Template     |具体的な処理をサブクラスに任せる|
 | 04 | Factory      |インスタンス作成をサブクラスに任せる|
 | 05 | Singleton    |インスタンスが1個だけ(Private Constructor)|
-| 06 | Prototype    ||
+| 06 | Prototype    |コピーしてインスタンスを作る|
 | 07 | Builder      ||
 | 08 | Abstract Factory  ||
 | 09 | Bridge       ||

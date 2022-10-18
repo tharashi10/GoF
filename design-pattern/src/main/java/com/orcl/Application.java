@@ -11,11 +11,15 @@ import com.orcl.design.adaptor.Prints;
 import com.orcl.design.dao.Instructor;
 import com.orcl.design.dao.InstructorDao;
 import com.orcl.design.dao.InstructorDaoImpl;
-import com.orcl.design.factory.framework.Factory;
-import com.orcl.design.factory.framework.Product;
-import com.orcl.design.factory.idcard.IDCardFactory;
+//import com.orcl.design.factory.framework.Factory;
+//import com.orcl.design.factory.framework.Product;
+//import com.orcl.design.factory.idcard.IDCardFactory;
 import com.orcl.design.iterator.Book;
 import com.orcl.design.iterator.BookShelf;
+import com.orcl.design.prototype.Manager;
+import com.orcl.design.prototype.MessageBox;
+import com.orcl.design.prototype.Product;
+import com.orcl.design.prototype.UnderlinePen;
 import com.orcl.design.adaptor.PrintBanner;
 
 import com.orcl.design.template.AbstractDisplay;
@@ -75,12 +79,32 @@ public class Application
         sd.display();
 
         /* Factory */
-        System.out.println("===== Factory =====");
-        Factory idcard = new IDCardFactory();
-        Product card1 = idcard.create("HogeHoge");
-        Product card2 = idcard.create("BarBar");
-        card1.use();
-        card2.use();
+        //System.out.println("===== Factory =====");
+        //Factory idcard = new IDCardFactory();
+        //Product card1 = idcard.create("HogeHoge");
+        //Product card2 = idcard.create("BarBar");
+        //card1.use();
+        //card2.use();
+
+        /* ProtoType */
+        System.out.println("===== Prototype =====");
+        Manager mgr = new Manager();
+        UnderlinePen ulp = new UnderlinePen('-');
+        MessageBox mBox = new MessageBox('*');
+        MessageBox sBox = new MessageBox('/');
+
+        mgr.register("Strong Message", ulp);
+        mgr.register("Warning", mBox);
+        mgr.register("Slashing", sBox);
+
+        Product p1 = mgr.create("Strong Message");
+        p1.user("Hello! from p1");
+
+        Product p2 = mgr.create("Warning");
+        p2.user("Hello! from p2");
+
+        Product p3 = mgr.create("Slashing");
+        p3.user("Hello! from p3");
 
         /* DAO */
         System.out.println("===== Dao =====");

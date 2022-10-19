@@ -1,6 +1,6 @@
 package com.orcl.design.prototype;
 
-public class MessageBox implements Product{
+public class MessageBox extends Product{
     private char decochar;
     public MessageBox(char decochar){
         this.decochar = decochar;
@@ -20,6 +20,10 @@ public class MessageBox implements Product{
         System.out.println();
     }
 
+    public MessageBox(MessageBox protoType){
+        this.decochar = protoType.decochar;
+    }
+
     /*
      * clone()メソッドは、java.lang.objectクラスのメソッド
      * 自分自身のインスタンスを複製する
@@ -29,12 +33,14 @@ public class MessageBox implements Product{
      */
     @Override
     public Product createCopy(){
-        Product p = null;
+        /*Product p = null;
         try {
             p = (Product) clone();
         } catch(CloneNotSupportedException e){
             e.printStackTrace();
         }
-        return p;
+        return p;*/
+        MessageBox mb = new MessageBox(this);
+        return mb;
     }
 }

@@ -1,6 +1,6 @@
 package com.orcl.design.prototype;
 
-public class UnderlinePen implements Product{
+public class UnderlinePen extends Product{
     private char ulchar;
     public UnderlinePen(char ulchar){
         this.ulchar = ulchar;
@@ -17,6 +17,10 @@ public class UnderlinePen implements Product{
         System.out.println();
     }
 
+    public UnderlinePen(UnderlinePen protoType){
+        this.ulchar = protoType.ulchar;
+    }
+
     /*
      * clone()メソッドは、java.lang.objectクラスのメソッド
      * 自分自身のインスタンスを複製する
@@ -24,14 +28,17 @@ public class UnderlinePen implements Product{
      * 他クラスから複製のリクエストがある場合は、
      * 今回のようにcreateCopy()のように別メソッドで包む必要がある
      */
+
     @Override
     public Product createCopy(){
-        Product p = null;
+        /*Product p = null;
         try {
             p = (Product) clone();
         } catch(CloneNotSupportedException e){
             e.printStackTrace();
         }
-        return p;
+        return p;*/
+        UnderlinePen up = new UnderlinePen(this);
+        return up;
     }
 }

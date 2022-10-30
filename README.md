@@ -28,7 +28,7 @@
 | 04 | Factory      |インスタンス作成をサブクラスに任せる|
 | 05 | Singleton    |インスタンスが1個だけ(Private Constructor)|
 | 06 | Prototype    |コピーしてインスタンスを作る|
-| 07 | Builder      ||
+| 07 | Builder      |複雑なインスタンスを組み上げていく|
 | 08 | Abstract Factory  ||
 | 09 | Bridge       ||
 | 10 | Strategy     ||

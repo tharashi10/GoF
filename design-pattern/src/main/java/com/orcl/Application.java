@@ -8,6 +8,9 @@ import java.util.List;
 //import com.orcl.design.adaptor.PrintHuman;
 import com.orcl.design.singleton.TicketMaker;
 import com.orcl.design.adaptor.Prints;
+import com.orcl.design.builder.Director;
+import com.orcl.design.builder.HTMLBuilder;
+import com.orcl.design.builder.TextBuilder;
 import com.orcl.design.dao.Instructor;
 import com.orcl.design.dao.InstructorDao;
 import com.orcl.design.dao.InstructorDaoImpl;
@@ -114,5 +117,41 @@ public class Application
             System.out.println(
                 "Instructor: [ID=" + instructor.getId() + ", Name=" + instructor.getName() +"]");
         }
+
+        /* Builder */
+        System.out.println("===== Builder =====");
+        if (args.length !=1){
+            usage();
+            System.exit(0);
+        }
+        if (args[0].equals("text")){
+            TextBuilder tb = new TextBuilder();
+            Director director = new Director(tb);
+            director.construct();
+            String result = tb.getTextResult();
+            System.out.println(result); 
+        }
+        else if (args[0].equals("html")){
+            HTMLBuilder hb = new HTMLBuilder();
+            Director director = new Director(hb);
+            director.construct();
+            String filename = hb.getHTMLResult();
+            System.out.println("FileName:"+filename+"was Created."); 
+        }
+        else {
+            usage();
+            System.exit(0);
+        }
+        
+        /* PrintAllInstructor */
+        for (Instructor instructor :instructorDao.getAllInstructors()){
+            System.out.println(
+                "Instructor: [ID=" + instructor.getId() + ", Name=" + instructor.getName() +"]");
+        }
+    }
+
+    private static void usage() {
+        System.out.println("Java Main text");
+        System.out.println("Java Main html");
     }
 }

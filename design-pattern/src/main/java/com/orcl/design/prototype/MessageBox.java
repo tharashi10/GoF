@@ -1,6 +1,6 @@
 package com.orcl.design.prototype;
 
-public class MessageBox extends Product{
+public class MessageBox implements Product{
     private char decochar;
     public MessageBox(char decochar){
         this.decochar = decochar;

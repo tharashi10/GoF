@@ -1,7 +1,8 @@
 package com.orcl.design.prototype;
 
 // extends, implements のスイッチのおかげで頭がバグった
-public abstract class Product implements Cloneable{
+// public abstract class Product implements Cloneable{
+public interface Product extends Cloneable{
     public abstract void user(String s);
     public abstract Product createCopy();
 

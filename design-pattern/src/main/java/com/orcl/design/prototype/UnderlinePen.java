@@ -1,6 +1,6 @@
 package com.orcl.design.prototype;
 
-public class UnderlinePen extends Product{
+public class UnderlinePen implements Product{
     private char ulchar;
     public UnderlinePen(char ulchar){
         this.ulchar = ulchar;

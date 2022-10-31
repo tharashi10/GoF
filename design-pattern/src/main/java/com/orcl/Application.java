@@ -11,6 +11,7 @@ import com.orcl.design.adaptor.Prints;
 import com.orcl.design.builder.Director;
 import com.orcl.design.builder.HTMLBuilder;
 import com.orcl.design.builder.TextBuilder;
+import com.orcl.design.builder.XMLBuilder;
 import com.orcl.design.dao.Instructor;
 import com.orcl.design.dao.InstructorDao;
 import com.orcl.design.dao.InstructorDaoImpl;
@@ -110,7 +111,7 @@ public class Application
         p3.user("Hello! from p3");
 
         /* DAO */
-        System.out.println("===== Dao =====");
+        System.out.println("\n===== Dao =====");
         InstructorDao instructorDao = new InstructorDaoImpl();
         /* PrintAllInstructor */
         for (Instructor instructor :instructorDao.getAllInstructors()){
@@ -119,7 +120,7 @@ public class Application
         }
 
         /* Builder */
-        System.out.println("===== Builder =====");
+        System.out.println("\n===== Builder =====");
         if (args.length !=1){
             usage();
             System.exit(0);
@@ -132,11 +133,11 @@ public class Application
             System.out.println(result); 
         }
         else if (args[0].equals("html")){
-            HTMLBuilder hb = new HTMLBuilder();
+            XMLBuilder hb = new XMLBuilder();
             Director director = new Director(hb);
             director.construct();
             String filename = hb.getHTMLResult();
-            System.out.println("FileName:"+filename+"was Created."); 
+            System.out.println("FileName:"+filename+" was Created."); 
         }
         else {
             usage();

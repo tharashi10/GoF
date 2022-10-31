@@ -10,10 +10,10 @@ public class Director {
 
     // 文書を作るメソッド
     public void construct(){
-        builder.makeTitle("greeting");
-        builder.makeString("一般的なあいさつ");
-        builder.makeItems(new String[]{"Hi","Hello","How are ya?"});
-        builder.makeString("時間帯に応じたあいさつ");
+        builder.makeTitle("Greeting");
+        builder.makeString("一般的な挨拶");
+        builder.makeItems(new String[]{"Hi","Hello","How are you?"});
+        builder.makeString("時間帯に応じた挨拶");
         builder.makeItems(new String[]{
             "Good Afternoon",
             "Good Morning",

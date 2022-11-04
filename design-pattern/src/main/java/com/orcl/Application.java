@@ -30,6 +30,8 @@ import com.orcl.design.adaptor.PrintBanner;
 import com.orcl.design.template.AbstractDisplay;
 import com.orcl.design.template.CharDisplay;
 import com.orcl.design.template.StringDisplay;
+//import com.orcl.design.abstractFactory.listfactory.ListFactory;
+
 /**
  * design Classで定義した各々のClassを実行するためのMain部分
  */
@@ -120,7 +122,6 @@ public class Application
                 "Instructor: [ID=" + instructor.getId() + ", Name=" + instructor.getName() +"]");
         }
 
-
         /* Builder */
         System.out.println("\n===== Builder =====");
         if (args.length !=1){
@@ -148,11 +149,11 @@ public class Application
 
 
         /* Abstract Factory */
-        /* java Main list.html design.listfactory.ListFactory */ 
+        /* java Main list.html com.orcl.design.listfactory.ListFactory */ 
         System.out.println("\n===== Abstract Factory =====");
         String filename = args[0];
         String classname = args[1];
-        System.out.print("filename: "+ filename + " , className: " +classname);
+        System.out.println("filename: "+ filename + " , className: " +classname);
 
         Factory factory = Factory.getFactory(classname);
 

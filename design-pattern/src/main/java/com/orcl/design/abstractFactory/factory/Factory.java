@@ -1,5 +1,7 @@
 package com.orcl.design.abstractFactory.factory;
 
+import com.orcl.design.abstractFactory.listfactory.ListLink;
+
 // 抽象的な部品と製品を作る抽象的な工場
 public abstract class Factory {
     // クラス名を指定して、具体的な工場のインスタンスを作成するメソッド
@@ -19,4 +21,12 @@ public abstract class Factory {
     public abstract Link createLink(String caption, String url);
     public abstract Tray createTray(String caption);
     public abstract Page createPage(String title, String author);
+    
+    // Main　Classと　FactoryClassのみ修正
+    public Page createYahooPage(){
+        Link link = createLink("Yahoo!", "https://www.yahoo.com/");
+        Page page = createPage("Yahoo!", "Yahoo!");
+        page.add(link);
+        return page;
+    }
 }

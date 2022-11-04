@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 // HTMLの全体を模した抽象クラス
+// [問題8.4] Trayのサブクラスにしない理由:
+// Tray内でadd(page)できるようになってしまうから。
+// pageはItemとはなり得ず、まとめたらあかん。<!DOCTYPE html>...</html>なので
 public abstract class Page{
     protected String title;
     protected String author;

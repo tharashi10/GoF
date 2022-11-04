@@ -30,7 +30,7 @@
 | 05 | インスタンスを作る | Singleton    |インスタンスが1個だけ(Private Constructor)|
 | 06 | インスタンスを作る | Prototype    |コピーしてインスタンスを作る|
 | 07 | インスタンスを作る | Builder      |複雑なインスタンスを組み上げていく|
-| 08 | インスタンスを作る | Abstract Factory ||
+| 08 | インスタンスを作る | Abstract Factory |関連する部品を組み合わせて製品を作る|
 | 09 | 分けて考える | Bridge       ||
 | 10 | 分けて考える | Strategy     ||
 | 11 | 同一視 | Composite    ||

@@ -9,7 +9,7 @@ import java.util.List;
 import com.orcl.design.singleton.TicketMaker;
 import com.orcl.design.adaptor.Prints;
 import com.orcl.design.builder.Director;
-import com.orcl.design.builder.HTMLBuilder;
+
 import com.orcl.design.builder.TextBuilder;
 import com.orcl.design.builder.XMLBuilder;
 import com.orcl.design.dao.Instructor;
@@ -24,6 +24,7 @@ import com.orcl.design.prototype.Manager;
 import com.orcl.design.prototype.MessageBox;
 import com.orcl.design.prototype.Product;
 import com.orcl.design.prototype.UnderlinePen;
+import com.orcl.design.abstractFactory.factory.*;
 import com.orcl.design.adaptor.PrintBanner;
 
 import com.orcl.design.template.AbstractDisplay;
@@ -119,11 +120,12 @@ public class Application
                 "Instructor: [ID=" + instructor.getId() + ", Name=" + instructor.getName() +"]");
         }
 
+
         /* Builder */
         System.out.println("\n===== Builder =====");
         if (args.length !=1){
             usage();
-            System.exit(0);
+            //System.exit(0);
         }
         if (args[0].equals("text")){
             TextBuilder tb = new TextBuilder();
@@ -141,14 +143,41 @@ public class Application
         }
         else {
             usage();
-            System.exit(0);
+            //System.exit(0);
         }
+
+
+        /* Abstract Factory */
+        /* java Main list.html design.listfactory.ListFactory */ 
+        System.out.println("\n===== Abstract Factory =====");
+        String filename = args[0];
+        String classname = args[1];
+        System.out.print("filename: "+ filename + " , className: " +classname);
+
+        Factory factory = Factory.getFactory(classname);
+
+        Link blog1 = factory.createLink("Blog_1", "https://sample.com/b1");
+        Link blog2 = factory.createLink("Blog_2", "https://sample.com/b2");
+        Link blog3 = factory.createLink("Blog_3", "https://sample.com/b3");
+
+        Tray blogTray = factory.createTray("Blog Sites");
+        blogTray.add(blog1);
+        blogTray.add(blog2);
+        blogTray.add(blog3);
+
+        Link news1 = factory.createLink("News_1", "https://sample.com/n1");
+        Link news2 = factory.createLink("News_2", "https://sample.com/n2");
+        Link news3 = factory.createLink("News_3", "https://sample.com/n3");
         
-        /* PrintAllInstructor */
-        for (Instructor instructor :instructorDao.getAllInstructors()){
-            System.out.println(
-                "Instructor: [ID=" + instructor.getId() + ", Name=" + instructor.getName() +"]");
-        }
+        Tray newsTray = factory.createTray("News Sites");
+        newsTray.add(news1);
+        newsTray.add(news2);
+        newsTray.add(news3);
+
+        Page page = factory.createPage("Blog and News", "Larry Elison");
+        page.add(blogTray);
+        page.add(newsTray);
+        page.output(filename);
     }
 
     private static void usage() {

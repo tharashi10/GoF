@@ -146,8 +146,7 @@ public class Application
             usage();
             //System.exit(0);
         }
-
-
+        
         /* Abstract Factory */
         /* java Main list.html com.orcl.design.listfactory.ListFactory */ 
         System.out.println("\n===== Abstract Factory =====");

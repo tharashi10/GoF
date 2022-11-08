@@ -16,11 +16,11 @@ public class StringDisplayImpl extends DisplayImpl{
     }
 
     private void printLine() {
-        System.out.println("*");
+        System.out.print("+");
         for (int i=0; i<width; i++){
-            System.out.println("-");
+            System.out.print("-");
         }
-        System.out.println("*");
+        System.out.println("+");
     }
 
     @Override

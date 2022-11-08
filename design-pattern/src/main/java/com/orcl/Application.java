@@ -8,6 +8,9 @@ import java.util.List;
 //import com.orcl.design.adaptor.PrintHuman;
 import com.orcl.design.singleton.TicketMaker;
 import com.orcl.design.adaptor.Prints;
+import com.orcl.design.bridge.CountDisplay;
+import com.orcl.design.bridge.Display;
+import com.orcl.design.bridge.StringDisplayImpl;
 import com.orcl.design.builder.Director;
 
 import com.orcl.design.builder.TextBuilder;
@@ -178,6 +181,17 @@ public class Application
         page.add(blogTray);
         page.add(newsTray);
         page.output(filename);
+
+
+        /* Bridge Pattern */ 
+        /* Display の引数でStringDisplayをnewしているのは、依存性の注入に当たる */
+        Display display1 = new Display(new StringDisplayImpl("Hello1"));
+        Display display2 = new CountDisplay(new StringDisplayImpl("Hello2"));
+        CountDisplay display3 = new CountDisplay(new StringDisplayImpl("Hello3."));
+        display1.display();
+        display2.display();
+        display3.display();
+        display3.multiDisplay(3);
     }
 
     private static void usage() {

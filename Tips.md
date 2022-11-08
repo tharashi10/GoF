@@ -32,3 +32,9 @@ public interface Iterator<E>{
 | clone()    | 複製する       | Object, Cloneable |
 - System.out.println()命令は引数として、インスタンスを渡すと、そのtoString()メソッドを呼び出して、文字列表現を取り出し、画面に表示する(ref.スッキリわかるJava入門:実践編P113)
 - 新たなクラスを開発したときは、toString()をオーバーライドして、意図した文字列を得るようにしておく
+
+## 気づき系
+- Cloneのところで出てきたやつ
+  - cloneableでなぜ継承(extends)/実装(implements)出来るのか
+- Spring CommandLinerの部分
+  - https://qiita.com/taka_22/items/7320642d1cafe88c7bf8

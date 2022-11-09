@@ -1,0 +1,16 @@
+15:37:57 ~ $ ll
+total 106840
+drwxr-xr-x   20 tharashi  staff       640 Oct 27 22:28 2022
+drwx------@   3 tharashi  staff        96 Sep 23 18:50 Applications
+drwx------+   4 tharashi  staff       128 Oct 18 19:40 Desktop
+drwx------+   3 tharashi  staff        96 Sep 14 15:01 Documents
+drwx------+ 122 tharashi  staff      3904 Oct 31 14:19 Downloads
+drwx------@  81 tharashi  staff      2592 Sep 26 01:09 Library
+-rw-r--r--@   1 tharashi  staff  54697912 Oct 25 20:56 Miniconda3-latest-MacOSX-arm64.sh
+drwx------    4 tharashi  staff       128 Sep 14 19:31 Movies
+drwx------+   4 tharashi  staff       128 Oct  4 14:32 Music
+drwxr-xr-x    4 tharashi  staff       128 Sep 14 15:47 Oracle Content - Accounts
+drwx------+   4 tharashi  staff       128 Sep 14 19:30 Pictures
+drwxr-xr-x+   4 tharashi  staff       128 Sep 14 15:01 Public
+drwxr-xr-x   16 tharashi  staff       512 Oct 25 21:07 miniconda
+-rw-r--r--    1 tharashi  staff        87 Sep 28 16:28 package-lock.json

@@ -8,8 +8,12 @@ import java.util.List;
 //import com.orcl.design.adaptor.PrintHuman;
 import com.orcl.design.singleton.TicketMaker;
 import com.orcl.design.adaptor.Prints;
+import com.orcl.design.bridge.CharDisplayImpl;
 import com.orcl.design.bridge.CountDisplay;
 import com.orcl.design.bridge.Display;
+import com.orcl.design.bridge.FileDisplayImpl;
+import com.orcl.design.bridge.IncreaseDisplay;
+import com.orcl.design.bridge.RandomDisplay;
 import com.orcl.design.bridge.StringDisplayImpl;
 import com.orcl.design.builder.Director;
 
@@ -192,6 +196,15 @@ public class Application
         display2.display();
         display3.display();
         display3.multiDisplay(3);
+
+        RandomDisplay display4 = new RandomDisplay(new StringDisplayImpl("Random."));
+        display4.randomDisplay(5);
+
+        CountDisplay display5 = new CountDisplay(new FileDisplayImpl("D09-Sample.txt"));
+        display5.multiDisplay(3);
+
+        IncreaseDisplay display6 = new IncreaseDisplay(new CharDisplayImpl("<", "*", ">"),2);
+        display6.increaseDisplay(6);
     }
 
     private static void usage() {

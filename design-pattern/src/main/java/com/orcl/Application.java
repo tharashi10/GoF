@@ -7,14 +7,18 @@ import java.util.List;
 //import com.orcl.design.adaptor.Print;
 //import com.orcl.design.adaptor.PrintHuman;
 import com.orcl.design.singleton.TicketMaker;
+import com.orcl.design.strategy.Hand;
+import com.orcl.design.strategy.Player;
+import com.orcl.design.strategy.ProbStrategy;
+import com.orcl.design.strategy.WinningStrategy;
 import com.orcl.design.adaptor.Prints;
-import com.orcl.design.bridge.CharDisplayImpl;
-import com.orcl.design.bridge.CountDisplay;
-import com.orcl.design.bridge.Display;
-import com.orcl.design.bridge.FileDisplayImpl;
-import com.orcl.design.bridge.IncreaseDisplay;
-import com.orcl.design.bridge.RandomDisplay;
-import com.orcl.design.bridge.StringDisplayImpl;
+//import com.orcl.design.bridge.CharDisplayImpl;
+//import com.orcl.design.bridge.CountDisplay;
+//import com.orcl.design.bridge.Display;
+//import com.orcl.design.bridge.FileDisplayImpl;
+//import com.orcl.design.bridge.IncreaseDisplay;
+//import com.orcl.design.bridge.RandomDisplay;
+//import com.orcl.design.bridge.StringDisplayImpl;
 import com.orcl.design.builder.Director;
 
 import com.orcl.design.builder.TextBuilder;
@@ -31,7 +35,7 @@ import com.orcl.design.prototype.Manager;
 import com.orcl.design.prototype.MessageBox;
 import com.orcl.design.prototype.Product;
 import com.orcl.design.prototype.UnderlinePen;
-import com.orcl.design.abstractFactory.factory.*;
+//import com.orcl.design.abstractFactory.factory.*;
 import com.orcl.design.adaptor.PrintBanner;
 
 import com.orcl.design.template.AbstractDisplay;
@@ -156,9 +160,11 @@ public class Application
         
         /* Abstract Factory */
         /* java Main list.html com.orcl.design.listfactory.ListFactory */ 
+        
         System.out.println("\n===== Abstract Factory =====");
-        String filename = args[0];
-        String classname = args[1];
+        //String filename = args[0];
+        //String classname = args[1];
+        /** 
         System.out.println("filename: "+ filename + " , className: " +classname);
 
         Factory factory = Factory.getFactory(classname);
@@ -185,10 +191,12 @@ public class Application
         page.add(blogTray);
         page.add(newsTray);
         page.output(filename);
+        **/
 
 
         /* Bridge Pattern */ 
         /* Display の引数でStringDisplayをnewしているのは、依存性の注入に当たる */
+        /*
         Display display1 = new Display(new StringDisplayImpl("Hello1"));
         Display display2 = new CountDisplay(new StringDisplayImpl("Hello2"));
         CountDisplay display3 = new CountDisplay(new StringDisplayImpl("Hello3."));
@@ -205,6 +213,34 @@ public class Application
 
         IncreaseDisplay display6 = new IncreaseDisplay(new CharDisplayImpl("<", "*", ">"),2);
         display6.increaseDisplay(6);
+        */
+
+        /* Strategy Pattern */
+        int seed1 = Integer.parseInt(args[0]);
+        int seed2 = Integer.parseInt(args[1]);
+        Player player1 = new Player("Taro", new WinningStrategy(seed1));
+        Player player2 = new Player("Hana", new ProbStrategy(seed2));
+
+        for (int i=0; i<10 ; i++){
+            Hand nextHand1 = player1.nextHand();
+            Hand nextHand2 = player2.nextHand();
+            if (nextHand1.isStrongerThan(nextHand2)){
+                System.out.println("Winner : " + player1);
+                player1.win();
+                player2.lose();
+            } else if (nextHand2.isStrongerThan(nextHand1)){
+                System.out.println("Winner : " + player2);
+                player2.win();
+                player1.lose();
+            } else {
+                System.out.println("Even : No One wins and loses.");
+                player1.even();
+                player2.even();
+            }
+            System.out.println("Total Result:");
+            System.out.println(player1);
+            System.out.println(player2);
+        }
     }
 
     private static void usage() {

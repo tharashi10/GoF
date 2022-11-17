@@ -5,6 +5,6 @@ public interface Strategy {
     // 次に出す手を得る
     public abstract Hand nextHand();
 
-    // さっき出した手によって勝ったかどうを学習する
+    // さっき出した手によって勝ったかどうかを学習する
     public abstract void study(boolean win);
 }

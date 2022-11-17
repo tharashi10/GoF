@@ -18,7 +18,7 @@ public class ProbStrategy implements Strategy {
     }
 
     @Override
-    public Hand nextHand() {
+    public Hand nextHand() { // 0-3, 3-8, 8-15
         int bet = rand.nextInt(getSum(currentHandValue));
         int handvalue = 0;
         if (bet < history[currentHandValue][0]){

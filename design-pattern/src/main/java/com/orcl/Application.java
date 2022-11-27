@@ -23,6 +23,8 @@ import com.orcl.design.builder.Director;
 
 import com.orcl.design.builder.TextBuilder;
 import com.orcl.design.builder.XMLBuilder;
+import com.orcl.design.composite.Directory;
+import com.orcl.design.composite.File;
 import com.orcl.design.dao.Instructor;
 import com.orcl.design.dao.InstructorDao;
 import com.orcl.design.dao.InstructorDaoImpl;
@@ -241,6 +243,28 @@ public class Application
             System.out.println(player1);
             System.out.println(player2);
         }
+        
+        /* [11]. Composite Pattern */
+        System.out.println("\n===== Composite =====");
+        Directory rootDir = new Directory("root");
+        Directory binDir = new Directory("bin");
+        Directory tmpDir = new Directory("tmp");
+        Directory usrDir = new Directory("usr");
+        rootDir.add(binDir);
+        rootDir.add(tmpDir);
+        rootDir.add(usrDir);
+        binDir.add(new File("vi", 1000));
+        binDir.add(new File("latex", 2000));
+        rootDir.printList();
+        System.out.println();
+
+        Directory yuki = new Directory("yuki");
+        Directory hanako = new Directory("hanako");
+        usrDir.add(hanako);
+        usrDir.add(yuki);
+        yuki.add(new File("sample.txt",100));
+        hanako.add(new File("test.txt",200));
+        rootDir.printList();
     }
 
     private static void usage() {

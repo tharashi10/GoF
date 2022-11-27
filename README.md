@@ -33,8 +33,8 @@
 | 08 | インスタンスを作る | Abstract Factory |関連する部品を組み合わせて製品を作る|
 | 09 | 分けて考える | Bridge       |機能の階層と実装の階層を分ける|
 | 10 | 分けて考える | Strategy     |アルゴリズムをごっそり切り替える|
-| 11 | 同一視 | Composite    ||
-| 12 | 同一視 | Decorator    ||
+| 11 | 同一視 | Composite    |容器と中身の同一視|
+| 12 | 同一視 | Decorator    |飾り枠と中身の同一視|
 | 13 | 構造を渡り歩く | Visitor      ||
 | 14 | 構造を渡り歩く | ChainOfResponsibility ||
 | 15 | シンプルにする | Facade       ||

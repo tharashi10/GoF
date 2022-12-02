@@ -31,7 +31,7 @@ public class Directory extends Entry {
         System.out.println(prefix + "/" + this.toString());  
         for (Entry entry: directory){
             entry.printList(prefix+"/"+name);
-        }    
+        }
     }
 
     // Direcotry の中にFile あるいは Directoryを追加していくメソッド

@@ -3,6 +3,7 @@ package com.orcl.design.composite;
 /**
  * ファイルを表現するクラス
  */
+
 public class File extends Entry{
     private int size;
     private String name;

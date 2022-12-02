@@ -46,3 +46,8 @@
 | 21 | 無駄をなくす | Proxy        ||
 | 22 | クラスで表現する | Command      ||
 | 99 | DB | Data Access Pattern | DBへのCRUD操作を「表」ごとに作成するパターン |
+
+#### Ref
+- [Java GoF 23](https://www.hyuki.com/dp/)
+- [Java マルチスレッド](https://www.hyuki.com/dp/dp2.html)
+- [Effective Java](https://www.maruzen-publishing.co.jp/item/?book_no=303408)

@@ -244,7 +244,7 @@ public class Application
             System.out.println(player2);
         }
         
-        /* [11]. Composite Pattern */
+        /* Composite Pattern */
         System.out.println("\n===== Composite =====");
         Directory rootDir = new Directory("root");
         Directory binDir = new Directory("bin");

@@ -4,14 +4,17 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-//import com.orcl.design.adaptor.Print;
-//import com.orcl.design.adaptor.PrintHuman;
+// [Singleton]
 import com.orcl.design.singleton.TicketMaker;
-import com.orcl.design.strategy.Hand;
-import com.orcl.design.strategy.Player;
-import com.orcl.design.strategy.ProbStrategy;
-import com.orcl.design.strategy.WinningStrategy;
-import com.orcl.design.adaptor.Prints;
+
+// [Strategy]
+// import com.orcl.design.strategy.Hand;
+// import com.orcl.design.strategy.Player;
+// import com.orcl.design.strategy.ProbStrategy;
+// import com.orcl.design.strategy.WinningStrategy;
+
+// [Bridge]
+//import com.orcl.design.bridge.Display;
 //import com.orcl.design.bridge.CharDisplayImpl;
 //import com.orcl.design.bridge.CountDisplay;
 //import com.orcl.design.bridge.Display;
@@ -19,31 +22,56 @@ import com.orcl.design.adaptor.Prints;
 //import com.orcl.design.bridge.IncreaseDisplay;
 //import com.orcl.design.bridge.RandomDisplay;
 //import com.orcl.design.bridge.StringDisplayImpl;
-import com.orcl.design.builder.Director;
 
+// [Builder]
+import com.orcl.design.builder.Director;
 import com.orcl.design.builder.TextBuilder;
 import com.orcl.design.builder.XMLBuilder;
-import com.orcl.design.composite.Directory;
-import com.orcl.design.composite.File;
+
+// [DAO]
 import com.orcl.design.dao.Instructor;
 import com.orcl.design.dao.InstructorDao;
 import com.orcl.design.dao.InstructorDaoImpl;
+
+// [Factory]
 //import com.orcl.design.factory.framework.Factory;
 //import com.orcl.design.factory.framework.Product;
 //import com.orcl.design.factory.idcard.IDCardFactory;
+
+// [Iterator]
 import com.orcl.design.iterator.Book;
 import com.orcl.design.iterator.BookShelf;
-import com.orcl.design.prototype.Manager;
-import com.orcl.design.prototype.MessageBox;
-import com.orcl.design.prototype.Product;
-import com.orcl.design.prototype.UnderlinePen;
-//import com.orcl.design.abstractFactory.factory.*;
-import com.orcl.design.adaptor.PrintBanner;
 
-import com.orcl.design.template.AbstractDisplay;
-import com.orcl.design.template.CharDisplay;
-import com.orcl.design.template.StringDisplay;
+// [Prototype]
+//import com.orcl.design.prototype.Manager;
+//import com.orcl.design.prototype.MessageBox;
+//import com.orcl.design.prototype.Product;
+//import com.orcl.design.prototype.UnderlinePen;
+
+// [Adaptor]
+//import com.orcl.design.adaptor.Prints;
+//import com.orcl.design.adaptor.PrintBanner;
+//import com.orcl.design.adaptor.Print;
+//import com.orcl.design.adaptor.PrintHuman;
+
+// [Abstract Factory]
 //import com.orcl.design.abstractFactory.listfactory.ListFactory;
+//import com.orcl.design.abstractFactory.factory.*;
+
+// [Template]
+//import com.orcl.design.template.AbstractDisplay;
+//import com.orcl.design.template.CharDisplay;
+//import com.orcl.design.template.StringDisplay;
+
+// [Composite]
+//import com.orcl.design.composite.Directory;
+//import com.orcl.design.composite.File;
+
+// [Decorator]
+import com.orcl.design.decorator.Display;
+import com.orcl.design.decorator.FullBorder;
+import com.orcl.design.decorator.UpBorder;
+import com.orcl.design.decorator.StringDisplay;
 
 /**
  * design Classで定義した各々のClassを実行するためのMain部分
@@ -52,53 +80,50 @@ public class Application
 {
     public static void main( String[] args )
     {  
-        /* Iterator */
+        /* Iterator Pattern*/
         System.out.println("===== Iterator =====");
         BookShelf bookShelf = new BookShelf(3);
         bookShelf.appendBook(new Book("Around the World in 80 days."));
         bookShelf.appendBook(new Book("Bible."));
         bookShelf.appendBook(new Book("Cinderella."));
-
         Iterator<Book> ite = bookShelf.iterator();
         while(ite.hasNext()){
             Book book = ite.next();
             System.out.println(book.getName());
         }
 
-        /* Adaptor Pattern Client */
-        System.out.println("===== Adaptor =====");
-        Prints p = new PrintBanner("HogeHoge");
-        p.printWeak();
-        p.printStrong();
+        /* Adaptor Pattern */
+        //System.out.println("===== Adaptor =====");
+        //Prints p = new PrintBanner("HogeHoge");
+        //p.printWeak();
+        //p.printStrong();
         //Print p = new PrintHuman("Hoge", 50);
         //p.printName();
         //p.printAge();
 
-        /* Singleton */
+        /* Singleton Pattern*/
         System.out.println("===== Singleton =====");
         TicketMaker instance1 = TicketMaker.getInstance();
         TicketMaker instance2 = TicketMaker.getInstance();
         System.out.println(instance1);
         System.out.println(instance2);
-
         List<TicketMaker> lst = new ArrayList<TicketMaker>();
         lst.add(TicketMaker.getInstance());
         lst.add(TicketMaker.getInstance());
         lst.add(TicketMaker.getInstance());
-
         Iterator<TicketMaker> it = lst.iterator();
         while(it.hasNext()){
             System.out.println(it.next());
         }
 
-        /* Template */
-        System.out.println("===== Template =====");
-        AbstractDisplay cd = new CharDisplay('H');
-        AbstractDisplay sd = new StringDisplay("Hello world!");
-        cd.display();
-        sd.display();
+        /* Template pattern*/
+        // System.out.println("===== Template =====");
+        // AbstractDisplay cd = new CharDisplay('H');
+        // AbstractDisplay sd = new StringDisplay("Hello world!");
+        // cd.display();
+        // sd.display();
 
-        /* Factory */
+        /* Factory Pattern*/
         //System.out.println("===== Factory =====");
         //Factory idcard = new IDCardFactory();
         //Product card1 = idcard.create("HogeHoge");
@@ -106,25 +131,23 @@ public class Application
         //card1.use();
         //card2.use();
 
-        /* ProtoType */
-        System.out.println("===== Prototype =====");
-        Manager mgr = new Manager();
-        UnderlinePen ulp = new UnderlinePen('-');
-        MessageBox mBox = new MessageBox('*');
-        MessageBox sBox = new MessageBox('/');
+        /* ProtoType pattern*/
+        //System.out.println("===== Prototype =====");
+        //Manager mgr = new Manager();
+        //UnderlinePen ulp = new UnderlinePen('-');
+        //MessageBox mBox = new MessageBox('*');
+        //MessageBox sBox = new MessageBox('/');
 
-        mgr.register("Strong Message", ulp);
-        mgr.register("Warning", mBox);
-        mgr.register("Slashing", sBox);
-
-        Product p1 = mgr.create("Strong Message");
-        p1.user("Hello! from p1");
-
-        Product p2 = mgr.create("Warning");
-        p2.user("Hello! from p2");
-
-        Product p3 = mgr.create("Slashing");
-        p3.user("Hello! from p3");
+        //mgr.register("Strong Message", ulp);
+        //mgr.register("Warning", mBox);
+        //mgr.register("Slashing", sBox);
+        //
+        //Product p1 = mgr.create("Strong Message");
+        //p1.user("Hello! from p1");
+        //Product p2 = mgr.create("Warning");
+        //p2.user("Hello! from p2");
+        //Product p3 = mgr.create("Slashing");
+        //p3.user("Hello! from p3");
 
         /* DAO */
         System.out.println("\n===== Dao =====");
@@ -135,7 +158,8 @@ public class Application
                 "Instructor: [ID=" + instructor.getId() + ", Name=" + instructor.getName() +"]");
         }
 
-        /* Builder */
+
+        /* Builder Pattern*/
         System.out.println("\n===== Builder =====");
         if (args.length !=1){
             usage();
@@ -162,8 +186,6 @@ public class Application
         
         /* Abstract Factory */
         /* java Main list.html com.orcl.design.listfactory.ListFactory */ 
-        
-        System.out.println("\n===== Abstract Factory =====");
         //String filename = args[0];
         //String classname = args[1];
         /** 
@@ -218,53 +240,62 @@ public class Application
         */
 
         /* Strategy Pattern */
-        int seed1 = Integer.parseInt(args[0]);
-        int seed2 = Integer.parseInt(args[1]);
-        Player player1 = new Player("Taro", new WinningStrategy(seed1));
-        Player player2 = new Player("Hana", new ProbStrategy(seed2));
+        //int seed1 = Integer.parseInt(args[0]);
+        //int seed2 = Integer.parseInt(args[1]);
+        //Player player1 = new Player("Taro", new WinningStrategy(seed1));
+        //Player player2 = new Player("Hana", new ProbStrategy(seed2));
 
-        for (int i=0; i<10 ; i++){
-            Hand nextHand1 = player1.nextHand();
-            Hand nextHand2 = player2.nextHand();
-            if (nextHand1.isStrongerThan(nextHand2)){
-                System.out.println("Winner : " + player1);
-                player1.win();
-                player2.lose();
-            } else if (nextHand2.isStrongerThan(nextHand1)){
-                System.out.println("Winner : " + player2);
-                player2.win();
-                player1.lose();
-            } else {
-                System.out.println("Even : No One wins and loses.");
-                player1.even();
-                player2.even();
-            }
-            System.out.println("Total Result:");
-            System.out.println(player1);
-            System.out.println(player2);
-        }
+        //for (int i=0; i<10 ; i++){
+        //    Hand nextHand1 = player1.nextHand();
+        //    Hand nextHand2 = player2.nextHand();
+        //    if (nextHand1.isStrongerThan(nextHand2)){
+        //        System.out.println("Winner : " + player1);
+        //        player1.win();
+        //        player2.lose();
+        //    } else if (nextHand2.isStrongerThan(nextHand1)){
+        //        System.out.println("Winner : " + player2);
+        //        player2.win();
+        //        player1.lose();
+        //    } else {
+        //        System.out.println("Even : No One wins and loses.");
+        //        player1.even();
+        //        player2.even();
+        //    }
+        //    System.out.println("Total Result:");
+        //    System.out.println(player1);
+        //    System.out.println(player2);
+        //}
         
         /* Composite Pattern */
-        System.out.println("\n===== Composite =====");
-        Directory rootDir = new Directory("root");
-        Directory binDir = new Directory("bin");
-        Directory tmpDir = new Directory("tmp");
-        Directory usrDir = new Directory("usr");
-        rootDir.add(binDir);
-        rootDir.add(tmpDir);
-        rootDir.add(usrDir);
-        binDir.add(new File("vi", 1000));
-        binDir.add(new File("latex", 2000));
-        rootDir.printList();
-        System.out.println();
+        //System.out.println("\n===== Composite =====");
+        //Directory rootDir = new Directory("root");
+        //Directory binDir = new Directory("bin");
+        //Directory tmpDir = new Directory("tmp");
+        //Directory usrDir = new Directory("usr");
+        //rootDir.add(binDir);
+        //rootDir.add(tmpDir);
+        //rootDir.add(usrDir);
+        //binDir.add(new File("vi", 1000));
+        //binDir.add(new File("latex", 2000));
+        //rootDir.printList();
+        //System.out.println();
 
-        Directory yuki = new Directory("yuki");
-        Directory hanako = new Directory("hanako");
-        usrDir.add(hanako);
-        usrDir.add(yuki);
-        yuki.add(new File("sample.txt",100));
-        hanako.add(new File("test.txt",200));
-        rootDir.printList();
+        //Directory yuki = new Directory("yuki");
+        //Directory hanako = new Directory("hanako");
+        //usrDir.add(hanako);
+        //usrDir.add(yuki);
+        //yuki.add(new File("sample.txt",100));
+        //hanako.add(new File("test.txt",200));
+        //rootDir.printList();
+
+        // Decorator パターン
+        System.out.println("===== Decorator Pattern =====");
+        Display d1 = new StringDisplay("Hello World");
+        Display d2 = new UpBorder(d1,'#');
+        Display d3 = new FullBorder(d2);
+        d1.show();
+        d2.show();
+        d3.show();
     }
 
     private static void usage() {

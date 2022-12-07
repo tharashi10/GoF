@@ -10,18 +10,29 @@ public class UpBorder extends Border {
     
     @Override
     public int getColums() {
-        return 1+display.getColums()+1; // 飾り枠が包んでいる[中身]の文字数
+        return display.getColums(); // 飾り枠が包んでいる[中身]の文字数
     }
 
     @Override
     public int getRows() {
-        return display.getRows();
+        return display.getRows()+2; //上下に飾り文字つける
     }
 
     @Override
     public String getRowText(int row) {
-        // 指定行の内容は、中身の指定行の両側に飾り文字をつけたもの
-        return borderChar + display.getRowText(row) + borderChar;
+        if (row==0 || row==getRows()-1){
+            return makeLine(borderChar, getColums());
+        }
+        else
+        return display.getRowText(row-1);
+    }
+
+    private String makeLine(char ch, int count){
+        StringBuilder line = new StringBuilder();
+        for (int i=0; i<count ; i++){
+            line.append(ch);
+        }
+        return line.toString();
     }
     
 }

@@ -70,6 +70,8 @@ import com.orcl.design.iterator.BookShelf;
 // [Decorator]
 import com.orcl.design.decorator.Display;
 import com.orcl.design.decorator.FullBorder;
+import com.orcl.design.decorator.MultiStringDisplay;
+import com.orcl.design.decorator.SideBorder;
 import com.orcl.design.decorator.UpBorder;
 import com.orcl.design.decorator.StringDisplay;
 
@@ -296,6 +298,15 @@ public class Application
         d1.show();
         d2.show();
         d3.show();
+
+        System.out.println("===== Decorator Pattern Multi =====");
+        MultiStringDisplay md = new MultiStringDisplay();
+        md.add("Hi!");
+        md.add("good morning!");
+        md.add("good night!");
+        md.show();
+        Display dd = new SideBorder(md,'#');
+        dd.show();
     }
 
     private static void usage() {

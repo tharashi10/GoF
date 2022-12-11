@@ -3,3 +3,5 @@
 design-pattern/.vscode
 design-pattern/img/*
 lib/*
+cpp/build/*
+cpp/CMakeLists.txt

@@ -1,17 +1,8 @@
 #include <string>
-class Entry
+#include "Element.hpp"
+class Entry : public Element
 {
     public:
-        Entry(/* args */);
-        ~Entry();
         virtual std::string getName()=0;
         virtual int getSize()=0;
 };
-
-Entry::Entry(/* args */)
-{
-}
-
-Entry::~Entry()
-{
-}

@@ -15,6 +15,6 @@ class ListVisitor : public Visitor{
         cout <<  s << endl;
     }
     virtual void visit(Directory directory) override{
-        // TODO
+        // TODO Iterator
     }
 };

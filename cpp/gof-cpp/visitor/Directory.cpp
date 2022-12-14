@@ -16,7 +16,7 @@ class Directory : public Entry{
         };
         int getSize() override{
             int size=0;
-            for (auto it=directory.begin; it!=directory.end(); ++it){
+            for (auto it=directory.begin(); it!=directory.end(); ++it){
                 // std::cout << *it << std::endl;
                 size+= it.getSize();
             };

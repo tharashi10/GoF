@@ -372,7 +372,7 @@ public class Application
         alice.setNext(bob).setNext(charlie).setNext(diana).setNext(elmo).setNext(fred);
         
         for (int i=0; i<500 ; i++){
-            alice.support(new Trouble(i)); // トラブルを発生させる
+            alice.support(new Trouble(i));
         }
     }
 

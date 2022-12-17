@@ -24,15 +24,10 @@ import com.orcl.design.singleton.TicketMaker;
 //import com.orcl.design.bridge.StringDisplayImpl;
 
 // [Builder]
-import com.orcl.design.builder.Director;
-import com.orcl.design.builder.TextBuilder;
-import com.orcl.design.builder.XMLBuilder;
-import com.orcl.design.chainOfResponsibility.LimitSupport;
-import com.orcl.design.chainOfResponsibility.NoSupport;
-import com.orcl.design.chainOfResponsibility.OddSupport;
-import com.orcl.design.chainOfResponsibility.SpecialSupport;
-import com.orcl.design.chainOfResponsibility.Support;
-import com.orcl.design.chainOfResponsibility.Trouble;
+// import com.orcl.design.builder.Director;
+// import com.orcl.design.builder.TextBuilder;
+// import com.orcl.design.builder.XMLBuilder;
+
 // [DAO]
 import com.orcl.design.dao.Instructor;
 import com.orcl.design.dao.InstructorDao;
@@ -87,7 +82,12 @@ import com.orcl.design.visitor.FileFindVisitor;
 import com.orcl.design.visitor.ListVisitor;
 
 // [Chain of Resposiblility]
-
+import com.orcl.design.chainOfResponsibility.LimitSupport;
+import com.orcl.design.chainOfResponsibility.NoSupport;
+import com.orcl.design.chainOfResponsibility.OddSupport;
+import com.orcl.design.chainOfResponsibility.SpecialSupport;
+import com.orcl.design.chainOfResponsibility.Support;
+import com.orcl.design.chainOfResponsibility.Trouble;
 
 /**
  * design Classで定義した各々のClassを実行するためのMain部分
@@ -376,8 +376,9 @@ public class Application
         }
     }
 
+    /* 
     private static void usage() {
         System.out.println("Java Main text");
         System.out.println("Java Main html");
-    }
+    }*/
 }

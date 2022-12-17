@@ -36,7 +36,7 @@
 | 11 | 同一視 | Composite    |容器と中身の同一視|
 | 12 | 同一視 | Decorator    |飾り枠と中身の同一視|
 | 13 | 構造を渡り歩く | Visitor      |構造をわたり歩きながら仕事をする<br>処理をデータ構造から分離する|
-| 14 | 構造を渡り歩く | ChainOfResponsibility ||
+| 14 | 構造を渡り歩く | ChainOfResponsibility |たらい回し|
 | 15 | シンプルにする | Facade       ||
 | 16 | シンプルにする | Mediator     ||
 | 17 | 状態を管理する | Observer     ||

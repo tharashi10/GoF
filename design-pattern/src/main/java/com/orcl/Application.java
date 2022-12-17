@@ -6,10 +6,6 @@ import java.util.List;
 
 // [Singleton]
 import com.orcl.design.singleton.TicketMaker;
-import com.orcl.design.visitor.Directory;
-import com.orcl.design.visitor.File;
-import com.orcl.design.visitor.FileFindVisitor;
-import com.orcl.design.visitor.ListVisitor;
 
 // [Strategy]
 // import com.orcl.design.strategy.Hand;
@@ -31,7 +27,12 @@ import com.orcl.design.visitor.ListVisitor;
 import com.orcl.design.builder.Director;
 import com.orcl.design.builder.TextBuilder;
 import com.orcl.design.builder.XMLBuilder;
-
+import com.orcl.design.chainOfResponsibility.LimitSupport;
+import com.orcl.design.chainOfResponsibility.NoSupport;
+import com.orcl.design.chainOfResponsibility.OddSupport;
+import com.orcl.design.chainOfResponsibility.SpecialSupport;
+import com.orcl.design.chainOfResponsibility.Support;
+import com.orcl.design.chainOfResponsibility.Trouble;
 // [DAO]
 import com.orcl.design.dao.Instructor;
 import com.orcl.design.dao.InstructorDao;
@@ -79,6 +80,15 @@ import com.orcl.design.decorator.SideBorder;
 import com.orcl.design.decorator.UpBorder;
 import com.orcl.design.decorator.StringDisplay;
 
+// [Visitor]
+import com.orcl.design.visitor.Directory;
+import com.orcl.design.visitor.File;
+import com.orcl.design.visitor.FileFindVisitor;
+import com.orcl.design.visitor.ListVisitor;
+
+// [Chain of Resposiblility]
+
+
 /**
  * design Classで定義した各々のClassを実行するためのMain部分
  */
@@ -86,7 +96,7 @@ public class Application
 {
     public static void main( String[] args )
     {  
-        /* Iterator Pattern*/
+        /* Iterator Pattern */
         System.out.println("===== Iterator =====");
         BookShelf bookShelf = new BookShelf(3);
         bookShelf.appendBook(new Book("Around the World in 80 days."));
@@ -107,7 +117,7 @@ public class Application
         //p.printName();
         //p.printAge();
 
-        /* Singleton Pattern*/
+        /* Singleton Pattern */
         System.out.println("===== Singleton =====");
         TicketMaker instance1 = TicketMaker.getInstance();
         TicketMaker instance2 = TicketMaker.getInstance();
@@ -122,14 +132,14 @@ public class Application
             System.out.println(it.next());
         }
 
-        /* Template pattern*/
+        /* Template pattern */
         // System.out.println("===== Template =====");
         // AbstractDisplay cd = new CharDisplay('H');
         // AbstractDisplay sd = new StringDisplay("Hello world!");
         // cd.display();
         // sd.display();
 
-        /* Factory Pattern*/
+        /* Factory Pattern */
         //System.out.println("===== Factory =====");
         //Factory idcard = new IDCardFactory();
         //Product card1 = idcard.create("HogeHoge");
@@ -137,7 +147,7 @@ public class Application
         //card1.use();
         //card2.use();
 
-        /* ProtoType pattern*/
+        /* ProtoType pattern */
         //System.out.println("===== Prototype =====");
         //Manager mgr = new Manager();
         //UnderlinePen ulp = new UnderlinePen('-');
@@ -156,7 +166,7 @@ public class Application
         //p3.user("Hello! from p3");
 
         /* DAO */
-        System.out.println("\n===== Dao =====");
+        System.out.println("\n===== DAO =====");
         InstructorDao instructorDao = new InstructorDaoImpl();
         /* PrintAllInstructor */
         for (Instructor instructor :instructorDao.getAllInstructors()){
@@ -165,7 +175,8 @@ public class Application
         }
 
 
-        /* Builder Pattern*/
+        /* Builder Pattern */
+        /* 
         System.out.println("\n===== Builder =====");
         if (args.length !=1){
             usage();
@@ -189,6 +200,7 @@ public class Application
             usage();
             //System.exit(0);
         }
+        */
         
         /* Abstract Factory */
         /* java Main list.html com.orcl.design.listfactory.ListFactory */ 
@@ -346,6 +358,21 @@ public class Application
 
         for (File file:ffv.getFoundFiles()){
             System.out.println(file);
+        }
+
+        // Chain of Responsibilities パターン
+        System.out.println("===== Chain of Responsibilities =====");
+        Support alice = new NoSupport("Alice");
+        Support bob = new LimitSupport("Bob",100);
+        Support charlie = new SpecialSupport("Charlie", 429);
+        Support diana = new LimitSupport("Diana", 200);
+        Support elmo = new OddSupport("Elmo");
+        Support fred = new LimitSupport("Fred", 300);
+
+        alice.setNext(bob).setNext(charlie).setNext(diana).setNext(elmo).setNext(fred);
+        
+        for (int i=0; i<500 ; i++){
+            alice.support(new Trouble(i)); // トラブルを発生させる
         }
     }
 

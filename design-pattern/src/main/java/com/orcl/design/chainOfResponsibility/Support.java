@@ -17,14 +17,19 @@ public abstract class Support {
 
     // トラブルの解決手順
     public void support(Trouble trouble){
-        if (resolve(trouble)){
-            done(trouble);
-        }
-        else if (next!=null){
-            next.support(trouble);
-        }
-        else{
-            fail(trouble);
+        //if (resolve(trouble)){
+        //    done(trouble);
+        //}
+        // 再帰ではなくFor文で
+        for (Support obj=this ; true; obj = obj.next){
+            if (obj.resolve(trouble)){
+                obj.done(trouble);
+                break;
+            }
+            else if (obj.next==null){
+                obj.fail(trouble);
+                break;
+            }
         }
     }
 

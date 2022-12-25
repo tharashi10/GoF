@@ -21,7 +21,7 @@ public abstract class Support {
         //    done(trouble);
         //}
         // 再帰ではなくFor文で
-        for (Support obj=this ; true; obj = obj.next){
+        for (Support obj=this ; true ; obj = obj.next){
             if (obj.resolve(trouble)){
                 obj.done(trouble);
                 break;

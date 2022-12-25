@@ -371,7 +371,7 @@ public class Application
 
         alice.setNext(bob).setNext(charlie).setNext(diana).setNext(elmo).setNext(fred);
         
-        for (int i=0; i<500 ; i++){
+        for (int i=0; i<500 ; i+=33){
             alice.support(new Trouble(i));
         }
     }

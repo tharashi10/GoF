@@ -17,7 +17,7 @@
 - GoFの本には、Zipでも範囲解答があるので一旦自分で書いてみて、照らし合わせてみる
 
 #### その他
-- リポジトリはGoF以外のCodeを載せてもOKとする（PythonでもSQLでもOK）
+- リポジトリはGoF以外のCodeを載せてもOKとする
 - 何かモノを作ってみたい(2022-10-31メモ)
 
 
@@ -52,3 +52,4 @@
 - [Java GoF 23](https://www.hyuki.com/dp/)
 - [Java マルチスレッド](https://www.hyuki.com/dp/dp2.html)
 - [Effective Java](https://www.maruzen-publishing.co.jp/item/?book_no=303408)
+- [Clean Architecture](https://www.amazon.co.jp/-/en/Robert-C-Martin/dp/4048930656)

@@ -73,6 +73,7 @@ import com.orcl.design.decorator.FullBorder;
 import com.orcl.design.decorator.MultiStringDisplay;
 import com.orcl.design.decorator.SideBorder;
 import com.orcl.design.decorator.UpBorder;
+import com.orcl.design.facade.pagemaker.PageMaker;
 import com.orcl.design.decorator.StringDisplay;
 
 // [Visitor]
@@ -374,6 +375,9 @@ public class Application
         for (int i=0; i<500 ; i+=33){
             alice.support(new Trouble(i));
         }
+
+        // Facade パターン
+        PageMaker.makeWelcomePage("hyuki@example.com", "Welcome.html");
     }
 
     /* 

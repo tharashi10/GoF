@@ -41,6 +41,7 @@ import com.orcl.design.dao.InstructorDaoImpl;
 // [Iterator]
 import com.orcl.design.iterator.Book;
 import com.orcl.design.iterator.BookShelf;
+import com.orcl.design.mediator.LoginFrame;
 
 // [Prototype]
 //import com.orcl.design.prototype.Manager;
@@ -73,7 +74,7 @@ import com.orcl.design.decorator.FullBorder;
 import com.orcl.design.decorator.MultiStringDisplay;
 import com.orcl.design.decorator.SideBorder;
 import com.orcl.design.decorator.UpBorder;
-import com.orcl.design.facade.pagemaker.PageMaker;
+//import com.orcl.design.facade.pagemaker.PageMaker;
 import com.orcl.design.decorator.StringDisplay;
 
 // [Visitor]
@@ -377,7 +378,10 @@ public class Application
         }
 
         // Facade パターン
-        PageMaker.makeWelcomePage("hyuki@example.com", "Welcome.html");
+        //PageMaker.makeWelcomePage("hyuki@example.com", "Welcome.html");
+
+        // Mediator パターン
+        new LoginFrame("Mediator Sample");
     }
 
     /* 

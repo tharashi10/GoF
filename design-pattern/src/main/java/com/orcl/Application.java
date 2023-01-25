@@ -94,6 +94,7 @@ import com.orcl.design.visitor.ListVisitor;
 // [Observer]
 import com.orcl.design.observer.DigitObserver;
 import com.orcl.design.observer.GraphObserver;
+import com.orcl.design.observer.IncrementalNumberGenerator;
 import com.orcl.design.observer.NumberGenerator;
 import com.orcl.design.observer.Observer;
 import com.orcl.design.observer.RandomNumberGenerator;
@@ -389,7 +390,9 @@ public class Application
 
         // Mediator パターン
         //new LoginFrame("Mediator Sample");
-        NumberGenerator generator = new RandomNumberGenerator();
+        
+        // Observer パターン
+        NumberGenerator generator = new IncrementalNumberGenerator(10,50,5);
         Observer observer1 = new DigitObserver();
         Observer observer2 = new GraphObserver();
         generator.addObserver(observer1);

@@ -1,5 +1,6 @@
 package com.orcl.design.observer;
 
+// 観察したObjectを文字で表す
 public class GraphObserver implements Observer{
     
     @Override
@@ -11,7 +12,7 @@ public class GraphObserver implements Observer{
         }
         System.out.println("");
         try {
-            Thread.sleep(100);
+            Thread.sleep(1000);
         } catch (Exception e) {
             // TODO: handle exception
         }

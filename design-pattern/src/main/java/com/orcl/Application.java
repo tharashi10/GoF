@@ -41,7 +41,7 @@ import com.orcl.design.dao.InstructorDaoImpl;
 // [Iterator]
 import com.orcl.design.iterator.Book;
 import com.orcl.design.iterator.BookShelf;
-import com.orcl.design.mediator.LoginFrame;
+//import com.orcl.design.mediator.LoginFrame;
 
 // [Prototype]
 //import com.orcl.design.prototype.Manager;
@@ -84,12 +84,19 @@ import com.orcl.design.visitor.FileFindVisitor;
 import com.orcl.design.visitor.ListVisitor;
 
 // [Chain of Resposiblility]
-import com.orcl.design.chainOfResponsibility.LimitSupport;
-import com.orcl.design.chainOfResponsibility.NoSupport;
-import com.orcl.design.chainOfResponsibility.OddSupport;
-import com.orcl.design.chainOfResponsibility.SpecialSupport;
-import com.orcl.design.chainOfResponsibility.Support;
-import com.orcl.design.chainOfResponsibility.Trouble;
+//import com.orcl.design.chainOfResponsibility.LimitSupport;
+//import com.orcl.design.chainOfResponsibility.NoSupport;
+//import com.orcl.design.chainOfResponsibility.OddSupport;
+//import com.orcl.design.chainOfResponsibility.SpecialSupport;
+//import com.orcl.design.chainOfResponsibility.Support;
+//import com.orcl.design.chainOfResponsibility.Trouble;
+
+// [Observer]
+import com.orcl.design.observer.DigitObserver;
+import com.orcl.design.observer.GraphObserver;
+import com.orcl.design.observer.NumberGenerator;
+import com.orcl.design.observer.Observer;
+import com.orcl.design.observer.RandomNumberGenerator;
 
 /**
  * design Classで定義した各々のClassを実行するためのMain部分
@@ -363,25 +370,31 @@ public class Application
         }
 
         // Chain of Responsibilities パターン
-        System.out.println("===== Chain of Responsibilities =====");
-        Support alice = new NoSupport("Alice");
-        Support bob = new LimitSupport("Bob",100);
-        Support charlie = new SpecialSupport("Charlie", 429);
-        Support diana = new LimitSupport("Diana", 200);
-        Support elmo = new OddSupport("Elmo");
-        Support fred = new LimitSupport("Fred", 300);
+        //System.out.println("===== Chain of Responsibilities =====");
+        //Support alice = new NoSupport("Alice");
+        //Support bob = new LimitSupport("Bob",100);
+        //Support charlie = new SpecialSupport("Charlie", 429);
+        //Support diana = new LimitSupport("Diana", 200);
+        //Support elmo = new OddSupport("Elmo");
+        //Support fred = new LimitSupport("Fred", 300);
 
-        alice.setNext(bob).setNext(charlie).setNext(diana).setNext(elmo).setNext(fred);
+        //alice.setNext(bob).setNext(charlie).setNext(diana).setNext(elmo).setNext(fred);
         
-        for (int i=0; i<500 ; i+=33){
-            alice.support(new Trouble(i));
-        }
+        //for (int i=0; i<500 ; i+=33){
+        //    alice.support(new Trouble(i));
+        //}
 
         // Facade パターン
         //PageMaker.makeWelcomePage("hyuki@example.com", "Welcome.html");
 
         // Mediator パターン
-        new LoginFrame("Mediator Sample");
+        //new LoginFrame("Mediator Sample");
+        NumberGenerator generator = new RandomNumberGenerator();
+        Observer observer1 = new DigitObserver();
+        Observer observer2 = new GraphObserver();
+        generator.addObserver(observer1);
+        generator.addObserver(observer2);
+        generator.execute();
     }
 
     /* 

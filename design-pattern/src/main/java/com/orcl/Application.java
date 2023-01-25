@@ -41,7 +41,7 @@ import com.orcl.design.dao.InstructorDaoImpl;
 // [Iterator]
 import com.orcl.design.iterator.Book;
 import com.orcl.design.iterator.BookShelf;
-//import com.orcl.design.mediator.LoginFrame;
+import com.orcl.design.mediator.LoginFrame;
 
 // [Prototype]
 //import com.orcl.design.prototype.Manager;
@@ -97,7 +97,7 @@ import com.orcl.design.observer.GraphObserver;
 import com.orcl.design.observer.IncrementalNumberGenerator;
 import com.orcl.design.observer.NumberGenerator;
 import com.orcl.design.observer.Observer;
-import com.orcl.design.observer.RandomNumberGenerator;
+//import com.orcl.design.observer.RandomNumberGenerator;
 
 /**
  * design Classで定義した各々のClassを実行するためのMain部分
@@ -389,7 +389,7 @@ public class Application
         //PageMaker.makeWelcomePage("hyuki@example.com", "Welcome.html");
 
         // Mediator パターン
-        //new LoginFrame("Mediator Sample");
+        new LoginFrame("Mediator Sample");
         
         // Observer パターン
         NumberGenerator generator = new IncrementalNumberGenerator(10,50,5);

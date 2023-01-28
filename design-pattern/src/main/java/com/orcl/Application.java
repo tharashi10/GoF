@@ -42,6 +42,8 @@ import com.orcl.design.dao.InstructorDaoImpl;
 import com.orcl.design.iterator.Book;
 import com.orcl.design.iterator.BookShelf;
 import com.orcl.design.mediator.LoginFrame;
+import com.orcl.design.memento.Gamer;
+import com.orcl.design.memento.Memento;
 
 // [Prototype]
 //import com.orcl.design.prototype.Manager;
@@ -398,6 +400,27 @@ public class Application
         generator.addObserver(observer1);
         generator.addObserver(observer2);
         generator.execute();
+
+        // Gamer パターン
+        Gamer gamer = new Gamer(100);
+        Memento memento = gamer.createMement();
+        for (int i=0; i<100;i++){
+            System.out.println("=== " + i + "番目");
+            gamer.bet();
+            System.out.println("所持金は " + gamer.getMoney() + "円になりました");
+            if (gamer.getMoney()>memento.getMoney()){
+                System.out.println("所持金は増えたので、保存");
+                gamer.createMement();
+            }else if (gamer.getMoney() < memento.getMoney()/2){
+                System.out.println("所持金が減ったので、リストア");
+                gamer.restoreMemento(memento);
+            }
+            try{
+                Thread.sleep(100);
+            }catch (InterruptedException e){
+            }
+            System.out.println("");
+        }
     }
 
     /* 

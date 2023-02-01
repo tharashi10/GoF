@@ -404,7 +404,8 @@ public class Application
         // Gamer パターン
         Gamer gamer = new Gamer(100);
         Memento memento = gamer.createMement();
-        for (int i=0; i<100;i++){
+
+        for (int i=0; i<10;i++){
             System.out.println("=== " + i + "番目");
             gamer.bet();
             System.out.println("所持金は " + gamer.getMoney() + "円になりました");

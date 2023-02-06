@@ -6,6 +6,7 @@ import java.util.List;
 
 // [Singleton]
 import com.orcl.design.singleton.TicketMaker;
+import com.orcl.design.state.SafeFrame;
 
 // [Strategy]
 // import com.orcl.design.strategy.Hand;
@@ -318,6 +319,7 @@ public class Application
         //hanako.add(new File("test.txt",200));
         //rootDir.printList();
 
+        /*
         // Decorator パターン
         System.out.println("===== Decorator Pattern =====");
         Display d1 = new StringDisplay("Hello World");
@@ -335,9 +337,10 @@ public class Application
         md.show();
         Display dd = new SideBorder(md,'#');
         dd.show();
-        
+         */
 
         // Visitor パターン
+        /*
         System.out.println("===== Visitor Pattern =====");
         System.out.println("Making root entries...");
         Directory rootdir = new Directory("root");
@@ -371,6 +374,7 @@ public class Application
         for (File file:ffv.getFoundFiles()){
             System.out.println(file);
         }
+        */
 
         // Chain of Responsibilities パターン
         //System.out.println("===== Chain of Responsibilities =====");
@@ -391,17 +395,20 @@ public class Application
         //PageMaker.makeWelcomePage("hyuki@example.com", "Welcome.html");
 
         // Mediator パターン
-        new LoginFrame("Mediator Sample");
+        //new LoginFrame("Mediator Sample");
         
         // Observer パターン
+        /*
         NumberGenerator generator = new IncrementalNumberGenerator(10,50,5);
         Observer observer1 = new DigitObserver();
         Observer observer2 = new GraphObserver();
         generator.addObserver(observer1);
         generator.addObserver(observer2);
         generator.execute();
+        */
 
         // Gamer パターン
+        /*
         Gamer gamer = new Gamer(100);
         Memento memento = gamer.createMement();
 
@@ -421,6 +428,19 @@ public class Application
             }catch (InterruptedException e){
             }
             System.out.println("");
+        }
+         */
+
+        // State パターン
+        SafeFrame frame = new SafeFrame("State Sample");
+        while (true){
+            for (int hour = 0; hour< 24; hour++){
+                frame.setClock(hour);
+                try{
+                    Thread.sleep(1000);
+                } catch (InterruptedException e){}
+            }
+
         }
     }
 

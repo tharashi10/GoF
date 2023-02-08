@@ -1,31 +1,30 @@
 package com.orcl.design.state;
 
-public class DayState implements State {
-    private static DayState singleton = new DayState();
-    private DayState(){}
+public class LunchState implements State {
+    private static LunchState singleton = new LunchState();
+    private LunchState(){}
     public static State getInstance(){
         return singleton;
     }
     @Override
     public void doClock(Context context,int hour){
-        if (hour < 9|| 17 <= hour){
+        if (9 <= hour && hour <12 || 13<=hour && hour<17){
+            context.changeState(DayState.getInstance());
+        } else if (hour < 9|| 17 <= hour){
             context.changeState(NightState.getInstance());
-        }else if (12 <=hour && hour<=13){
-            context.changeState(LunchState.getInstance());
         }
     }
     @Override
     public void doUse(Context context){
-        context.recordLog("Using money on Lunch_time");
+        context.callSecurityCenter("Bell on Lunch");
     }
     @Override
     public void doAlarm(Context context){
-        context.callSecurityCenter("Bell on Lunch_time");
-        context.changeState(UrgentState.getInstance());
+        context.callSecurityCenter("Bell on Lunch");
     }
     @Override
     public void doPhone(Context context){
-        context.callSecurityCenter("Phoning on Lunch_time");
+        context.recordLog("Recording on Lunch");
     }
     @Override
     public String toString(){

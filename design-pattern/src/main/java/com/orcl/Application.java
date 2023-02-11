@@ -6,7 +6,7 @@ import java.util.List;
 
 // [Singleton]
 import com.orcl.design.singleton.TicketMaker;
-import com.orcl.design.state.SafeFrame;
+//import com.orcl.design.state.SafeFrame;
 
 // [Strategy]
 // import com.orcl.design.strategy.Hand;
@@ -33,6 +33,7 @@ import com.orcl.design.state.SafeFrame;
 import com.orcl.design.dao.Instructor;
 import com.orcl.design.dao.InstructorDao;
 import com.orcl.design.dao.InstructorDaoImpl;
+import com.orcl.design.flyweight.BigString;
 
 // [Factory]
 //import com.orcl.design.factory.framework.Factory;
@@ -72,19 +73,19 @@ import com.orcl.design.memento.Memento;
 //import com.orcl.design.composite.File;
 
 // [Decorator]
-import com.orcl.design.decorator.Display;
-import com.orcl.design.decorator.FullBorder;
-import com.orcl.design.decorator.MultiStringDisplay;
-import com.orcl.design.decorator.SideBorder;
-import com.orcl.design.decorator.UpBorder;
+//import com.orcl.design.decorator.Display;
+//import com.orcl.design.decorator.FullBorder;
+//import com.orcl.design.decorator.MultiStringDisplay;
+//import com.orcl.design.decorator.SideBorder;
+//import com.orcl.design.decorator.UpBorder;
 //import com.orcl.design.facade.pagemaker.PageMaker;
-import com.orcl.design.decorator.StringDisplay;
+//import com.orcl.design.decorator.StringDisplay;
 
 // [Visitor]
-import com.orcl.design.visitor.Directory;
-import com.orcl.design.visitor.File;
-import com.orcl.design.visitor.FileFindVisitor;
-import com.orcl.design.visitor.ListVisitor;
+//import com.orcl.design.visitor.Directory;
+//import com.orcl.design.visitor.File;
+//import com.orcl.design.visitor.FileFindVisitor;
+//import com.orcl.design.visitor.ListVisitor;
 
 // [Chain of Resposiblility]
 //import com.orcl.design.chainOfResponsibility.LimitSupport;
@@ -432,6 +433,7 @@ public class Application
          */
 
         // State パターン
+        /*
         SafeFrame frame = new SafeFrame("State Sample");
         while (true){
             for (int hour = 0; hour< 24; hour++){
@@ -441,12 +443,8 @@ public class Application
                 } catch (InterruptedException e){}
             }
 
-        }
+        } */
+        BigString bs = new BigString("1");
+        bs.print();
     }
-
-    /* 
-    private static void usage() {
-        System.out.println("Java Main text");
-        System.out.println("Java Main html");
-    }*/
 }

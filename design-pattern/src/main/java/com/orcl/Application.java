@@ -107,7 +107,8 @@ import com.orcl.design.observer.Observer;
  * design Classで定義した各々のClassを実行するためのMain部分
  */
 public class Application 
-{
+{   
+    private static BigString[] bsarray = new BigString[10000];
     public static void main( String[] args )
     {  
         /* Iterator Pattern */
@@ -444,7 +445,22 @@ public class Application
             }
 
         } */
-        BigString bs = new BigString("1");
-        bs.print();
+        System.out.println("*** Shared ***");
+        testAlloc(true);
+        System.out.println("*** NotShared ***");
+        testAlloc(false);
+        //BigString bs = new BigString("1",false);
+        //bs.print();
+    }
+    public static void testAlloc(boolean shared){
+        for (int i=0; i < bsarray.length ; i++){
+            bsarray[i] = new BigString("1", shared);
+        }
+        showMemory();
+    }
+    public static void showMemory(){
+        Runtime.getRuntime().gc();
+        long used = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        System.out.println("Memory Used = " + used);
     }
 }

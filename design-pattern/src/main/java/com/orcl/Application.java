@@ -101,7 +101,10 @@ import com.orcl.design.observer.GraphObserver;
 import com.orcl.design.observer.IncrementalNumberGenerator;
 import com.orcl.design.observer.NumberGenerator;
 import com.orcl.design.observer.Observer;
+import com.orcl.design.proxy.Printable;
+import com.orcl.design.proxy.Printer;
 //import com.orcl.design.observer.RandomNumberGenerator;
+import com.orcl.design.proxy.PrinterProxy;
 
 /**
  * design Classで定義した各々のClassを実行するためのMain部分
@@ -445,13 +448,22 @@ public class Application
             }
 
         } */
-        System.out.println("*** Shared ***");
-        testAlloc(true);
-        System.out.println("*** NotShared ***");
-        testAlloc(false);
+        //System.out.println("*** Shared ***");
+        //testAlloc(true);
+        //System.out.println("*** NotShared ***");
+        //testAlloc(false);
         //BigString bs = new BigString("1",false);
         //bs.print();
+
+
+        //Proxy Pattern #21
+        Printable p = new PrinterProxy("Alice");
+        System.out.println("現在のPrinterは: "+ p.getPrinterName() + "です");
+        p.setPrinterName("Hoge");
+        System.out.println("現在のPrinterは: "+ p.getPrinterName() + "です");
+        p.setPrinterName("Foo");
     }
+    
     public static void testAlloc(boolean shared){
         for (int i=0; i < bsarray.length ; i++){
             bsarray[i] = new BigString("1", shared);

@@ -457,13 +457,13 @@ public class Application
 
 
         //Proxy Pattern #21
-        Printable p = new PrinterProxy("Alice");
+        Printable p = new PrinterProxy("Alice","com.orcl.design.proxy.Printer");
         System.out.println("現在のPrinterは: "+ p.getPrinterName() + "です");
         p.setPrinterName("Hoge");
         System.out.println("現在のPrinterは: "+ p.getPrinterName() + "です");
-        p.setPrinterName("Foo");
+        p.print("Hello World.");
     }
-    
+
     public static void testAlloc(boolean shared){
         for (int i=0; i < bsarray.length ; i++){
             bsarray[i] = new BigString("1", shared);

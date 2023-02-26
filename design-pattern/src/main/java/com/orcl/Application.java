@@ -462,6 +462,11 @@ public class Application
         p.setPrinterName("Hoge");
         System.out.println("現在のPrinterは: "+ p.getPrinterName() + "です");
         p.print("Hello World.");
+
+        //Proxy Pattern #22
+        /*
+         * Mainクラスがさらに汚れそうなので、別フォルダで実行
+         */
     }
 
     public static void testAlloc(boolean shared){

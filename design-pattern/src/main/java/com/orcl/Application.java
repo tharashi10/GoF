@@ -1,5 +1,7 @@
 package com.orcl;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -34,6 +36,9 @@ import com.orcl.design.dao.Instructor;
 import com.orcl.design.dao.InstructorDao;
 import com.orcl.design.dao.InstructorDaoImpl;
 import com.orcl.design.flyweight.BigString;
+import com.orcl.design.interpreter.Context;
+import com.orcl.design.interpreter.Node;
+import com.orcl.design.interpreter.ProgramNode;
 
 // [Factory]
 //import com.orcl.design.factory.framework.Factory;
@@ -113,7 +118,7 @@ public class Application
 {   
     private static BigString[] bsarray = new BigString[10000];
     public static void main( String[] args )
-    {  
+    {
         /* Iterator Pattern */
         System.out.println("===== Iterator =====");
         BookShelf bookShelf = new BookShelf(3);
@@ -457,16 +462,28 @@ public class Application
 
 
         //Proxy Pattern #21
-        Printable p = new PrinterProxy("Alice","com.orcl.design.proxy.Printer");
-        System.out.println("現在のPrinterは: "+ p.getPrinterName() + "です");
-        p.setPrinterName("Hoge");
-        System.out.println("現在のPrinterは: "+ p.getPrinterName() + "です");
-        p.print("Hello World.");
+        //Printable p = new PrinterProxy("Alice","com.orcl.design.proxy.Printer");
+        //System.out.println("現在のPrinterは: "+ p.getPrinterName() + "です");
+        //p.setPrinterName("Hoge");
+        //System.out.println("現在のPrinterは: "+ p.getPrinterName() + "です");
+        //p.print("Hello World.");
 
         //Proxy Pattern #22
         /*
          * Mainクラスがさらに汚れそうなので、別フォルダで実行
          */
+        
+        //Interpreter Pattern #23
+        try {
+            for (String text: Files.readAllLines(Path.of("program.txt"))) {
+                System.out.println("text = \"" + text + "\"");
+                Node node = new ProgramNode();
+                node.parse(new Context(text));
+                System.out.println("node = " + node);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void testAlloc(boolean shared){
